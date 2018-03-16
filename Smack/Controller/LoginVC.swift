@@ -10,6 +10,10 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var createAccountBtn: UIButton!
+    @IBAction func createAccountBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: TO_CREATE_ACCOUNT, sender: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
