@@ -9,10 +9,11 @@
 import Foundation
 
 // Url
-let BASE_URL = "http://parala.xyz:42313/v1/"
+let BASE_URL = "https://parala.xyz:9996/v1/"
 let URL_REGISTER = "\(BASE_URL)account/register"
+let URL_LOGIN = "\(BASE_URL)account/login"
 
-// typedef
+// Typedefs
 typealias CompletionHandler = (_ Success: Bool) -> ()
 
 // Segues
@@ -24,3 +25,8 @@ let UNWIND = "unwindToChannel"
 let TOKEN_KEY = "token"
 let LOGGED_IN_KEY = "loggedIn"
 let USER_EMAIL = "userEmail"
+
+// Headers
+let HEADER = [
+    "Content-Type" : "application/json; charset=utf-8"
+]
