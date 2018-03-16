@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		74F5D709D692223792355FB4 /* Pods_Smack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A47233E1A86C53DF1BB4853 /* Pods_Smack.framework */; };
 		897B0B28205BEF2A00249A26 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897B0B27205BEF2A00249A26 /* GradientView.swift */; };
+		897B0B2B205BFC8100249A26 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897B0B2A205BFC8100249A26 /* Constants.swift */; };
+		897B0B2D205C025900249A26 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 897B0B2C205C025800249A26 /* LoginVC.swift */; };
 		898A5A39205AF82D00BB7443 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898A5A38205AF82D00BB7443 /* SWRevealViewController.m */; };
 		898A5A3B205AF8AF00BB7443 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898A5A3A205AF8AF00BB7443 /* ChatVC.swift */; };
 		898A5A3D205AF8CC00BB7443 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898A5A3C205AF8CC00BB7443 /* ChannelVC.swift */; };
@@ -22,6 +24,8 @@
 		3A47233E1A86C53DF1BB4853 /* Pods_Smack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C30B30935BDA0AD5D5533CA /* Pods-Smack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smack.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smack/Pods-Smack.release.xcconfig"; sourceTree = "<group>"; };
 		897B0B27205BEF2A00249A26 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		897B0B2A205BFC8100249A26 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		897B0B2C205C025800249A26 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		898A5A36205AF82B00BB7443 /* Smack-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smack-Bridging-Header.h"; sourceTree = "<group>"; };
 		898A5A37205AF82C00BB7443 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		898A5A38205AF82D00BB7443 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -65,6 +69,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		897B0B29205BFC6100249A26 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				897B0B2A205BFC8100249A26 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		898A5A2B205AF0F500BB7443 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +92,7 @@
 			children = (
 				898A5A3A205AF8AF00BB7443 /* ChatVC.swift */,
 				898A5A3C205AF8CC00BB7443 /* ChannelVC.swift */,
+				897B0B2C205C025800249A26 /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -120,6 +133,7 @@
 		89AD4285205AE62D002729FA /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				897B0B29205BFC6100249A26 /* Utilities */,
 				898A5A2B205AF0F500BB7443 /* Supporting Files */,
 				898A5A32205AF7AE00BB7443 /* Model */,
 				898A5A31205AF7A700BB7443 /* View */,
@@ -271,9 +285,11 @@
 			files = (
 				898A5A3D205AF8CC00BB7443 /* ChannelVC.swift in Sources */,
 				898A5A3B205AF8AF00BB7443 /* ChatVC.swift in Sources */,
+				897B0B2D205C025900249A26 /* LoginVC.swift in Sources */,
 				897B0B28205BEF2A00249A26 /* GradientView.swift in Sources */,
 				89AD4287205AE62D002729FA /* AppDelegate.swift in Sources */,
 				898A5A39205AF82D00BB7443 /* SWRevealViewController.m in Sources */,
+				897B0B2B205BFC8100249A26 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
