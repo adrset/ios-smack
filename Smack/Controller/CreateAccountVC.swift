@@ -28,6 +28,14 @@ class CreateAccountVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDataService.instance.avatarName != "" {
+            userImg.image = UIImage(named: UserDataService.instance.avatarName)
+            avatarName = UserDataService.instance.avatarName
+            
+        }
+    }
+    
     @IBAction func closePresed(_ sender: Any) {
         // Dismiss would go back to login
         // This way I go straightly to Channel
