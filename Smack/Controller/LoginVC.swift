@@ -16,7 +16,7 @@ class LoginVC: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedOutside()
         // Do any additional setup after loading the view.
     }
 
