@@ -9,7 +9,8 @@
 import UIKit
 
 class CreateAccountVC: UIViewController {
-
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     @IBOutlet weak var usernameTxt: UITextField!
     
     @IBOutlet weak var emailTxt: UITextField!
@@ -20,10 +21,12 @@ class CreateAccountVC: UIViewController {
     
     var avatarName = "profileDefault"
     var avatarColor = "[0.5, 0.5, 0.5, 1]"
+    var bgColor : UIColor?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         self.hideKeyboardWhenTappedOutside()
         // Do any additional setup after loading the view.
     }
@@ -33,6 +36,9 @@ class CreateAccountVC: UIViewController {
             userImg.image = UIImage(named: UserDataService.instance.avatarName)
             avatarName = UserDataService.instance.avatarName
             
+            if avatarName.contains("light") && bgColor == nil {
+                userImg.backgroundColor = UIColor.lightGray
+            }
         }
     }
     
@@ -47,10 +53,19 @@ class CreateAccountVC: UIViewController {
     }
     
     @IBAction func pickBgColorPressed(_ sender: Any) {
+        let r = CGFloat(arc4random_uniform(255)) / 255.0
+        let g = CGFloat(arc4random_uniform(255)) / 255.0
+        let b = CGFloat(arc4random_uniform(255)) / 255.0
+        bgColor = UIColor(red: r, green: g, blue: b, alpha: 1.0)
+        UIView.animate(withDuration: 0.2) {
+            self.userImg.backgroundColor = self.bgColor
+        }
         
     }
     
     @IBAction func createAccountPressed(_ sender: Any) {
+        spinner.isHidden = false
+        spinner.startAnimating()
         guard let email = emailTxt.text, emailTxt.text != "" else
         { return }
         
@@ -66,8 +81,10 @@ class CreateAccountVC: UIViewController {
                     if success {
                         AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
                             if success {
-                                print(UserDataService.instance.name)
+                                self.spinner.isHidden = true
+                                self.spinner.stopAnimating()
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
+                                NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
                             }
                         })
                     }
@@ -76,6 +93,15 @@ class CreateAccountVC: UIViewController {
         }
     }
     
+    func setupView(){
+        
+        spinner.isHidden = true
+        usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor: SMACK_PURPLE_PLACEHOLDER])
+        
+        emailTxt.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedStringKey.foregroundColor: SMACK_PURPLE_PLACEHOLDER])
+        
+        passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor: SMACK_PURPLE_PLACEHOLDER])
+    }
     
     
 
